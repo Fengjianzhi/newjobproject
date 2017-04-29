@@ -1,31 +1,21 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-          <a class="navbar-brand" href="/">Rural Teacher Project </a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-              <% if !current_user %>
-                <li><%= link_to("注册", new_user_registration_path) %> </li>
-                <li><%= link_to("登入", new_user_session_path) %></li>
-              <% else %>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      Hi!, <%= current_user.email %>
-                      <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li> <%= link_to("Admin Panel", admin_jobs_path) %> </li>
-                      <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
-                  </ul>
-                </li>
-              <% end %>
-          </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
-</nav>
+<div class="wrapper">
+  <header class="main_header clearfix">
+    <div class="logo">
+      <img src="http://ww3.sinaimg.cn/large/006tKfTcgy1feytl20vhzj305k05k74e.jpg" alt="eninstein">
+      <h1>Rural <span>Teacher</span></h1>
+    </div>
+    <nav class="nav">
+      <ul class="current">
+        <a><%= link_to("Home", welcome_index_path) %></a>
+        <a><%= link_to("Jobs", jobs_path) %></a>
+        <% if !current_user %>
+          <a><%= link_to("Sign up", new_user_registration_path) %> </a>
+          <a ><%= link_to("login", new_user_session_path) %></a>
+        <% else %>
+          <a> <%= link_to("Admin", admin_jobs_path) %> </a>
+          <a> <%= link_to("logout", destroy_user_session_path, method: :delete) %> </a>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+</div>

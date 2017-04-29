@@ -1,3 +1,135 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$main:        #34314c;
+$secondary:   #9592ad;
+$border:      #d9dee9;
+$white:       #ffffff;
+$highlight-1: #fd7473;
+$highlight-2: #fec951;
+$highlight-3: #47b8e0;
+$highlight-4: #9f68d0;
+
+body {
+  font-family: "proxima-nova", sans-serif;
+}
+
+footer {
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 700;
+}
+
+.border{
+  height: 6px;
+  border: 0px;
+  background-color: $highlight-1;
+  background-image:
+    linear-gradient(
+      to right,
+      $highlight-1,
+      $highlight-1 25%,
+      $highlight-2 25%,
+      $highlight-2 50%,
+      $highlight-3 50%,
+      $highlight-3 75%,
+      $highlight-4 75%,
+      $highlight-4 100%,
+      $highlight-4 100%
+    );
+  -webkit-background-size: 50% 100%;
+  -moz-background-size: 50% 100%;
+  background-size: 50% 100%;
+}
+
+.wrapper{
+  width: 750px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after{
+  clear: both;
+}
+
+.main_header {
+  margin: 5em 0 3em 0;
+}
+
+.logo {
+  img {
+    width: 75px;
+    height: 75px;
+    float: left;
+  }
+  h1 {
+    float: left;
+    margin: 0 0 0 1em;
+    text-transform: uppercase;
+    font-size: 1.35em;
+    padding-top: 1.1em;
+    color: $secondary;
+    span {
+      font-weight: 400;
+    }
+  }
+}
+
+.nav {
+  float: right;
+  padding-top: 1.75em;
+  a {
+    color: $secondary;
+    margin-left: 1em;
+    text-decoration: none;
+  }
+  .current {
+    font-weight: 700;
+    color: $main;
+  }
+}
+footer {
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 700;
+  color: $secondary;
+}
+
+#timeline {
+  width: 100%;
+  position: none;
+  padding: 0;
+  a {
+    text-decoration: none;
+  }
+  .listing {
+    background: $white;
+    padding: 1em;
+    margin-bottom: 1em;
+    position: relative;
+    z-index: 1;
+    display: table;
+    width: 100%;
+    .info {
+      line-height: 2;
+      width: 640px;
+      padding-left: 25px;
+      .job_title {
+        font-weight: 700;
+        color: $secondary;
+        font-size: 2.5em;
+      }
+      .job_info {
+        color: $secondary;
+        display: block;
+        font-size: 1em;
+        span {
+          margin: 0 .75em;
+        }
+      }
+    }
+  }
+}

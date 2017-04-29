@@ -1,8 +1,8 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
-  
+
   def index
-    @jobs = Job.all
+    @jobs = Job.where(:is_hidden => false)
   end
   def show
     @job = Job.find(params[:id])
@@ -12,7 +12,7 @@ class JobsController < ApplicationController
   end
   def create
     @job = Job.new(job_params)
-    if job.save
+    if @job.save
       redirect_to jobs_path
     else
       render :new
@@ -23,7 +23,7 @@ class JobsController < ApplicationController
   end
   def update
     @job = Job.find(params[:id])
-    if job.update(job_params)
+    if @job.update(job_params)
       redirect_to jobs_path
     else
       render :edit
@@ -36,6 +36,6 @@ class JobsController < ApplicationController
   end
   private
   def job_params
-    params.require(:job).permit(:title, :description)
+    params.require(:job).permit(:title, :description, :is_hidden)
   end
 end
